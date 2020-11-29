@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {useQuery} from "@apollo/react-hooks"
-// import {GET_PANGAEA} from '../graphql/get-pangaea'
 import gql from 'graphql-tag'
 import Products from '../components/Products'
 import Cart from '../components/Cart'
@@ -17,8 +16,7 @@ export const PangaeaContainer = ({Currency, setCurrency}) => {
         currency
       }
 `)
-    // console.log(products, "Joel is here")
-    // console.log(currency, "Joel is here")
+    
     const [cartState, setCartState] = useState(false)
     const [cart, setCart] = useState([
         
@@ -37,6 +35,7 @@ export const PangaeaContainer = ({Currency, setCurrency}) => {
                     </select>
                 </div>
             </div>
+            
             <div className="product-wrapper">
                 {
                     products.map(product => <Products 

@@ -33,11 +33,33 @@ const Cart = ({currencies,setCart, cart, setCurrency,  Currency,  setCartState, 
                                 <div className="d-flex align-items-end">
                                     <div className="d-flex-center justify-content-between incremental">
                                        <span className="cursor incr-action" onClick={() => {
+                                           let tempCart = []
+                                           if(item.qty === 1){
+                                              tempCart = cart.filter(data => data.id !== item.id)
+
+                                           }else {
+                                             tempCart = cart.map(itemCart => {
+                                                if(itemCart.id === item.id){
+                                                    itemCart = {...itemCart, qty: itemCart.qty - 1}
+                                                }
+                                                return itemCart
+                                            })
+
+                                           }
+                                            
+                                            setCart(tempCart)
                                           
                                        }}>-</span>
                                         <span>{item.qty}</span>
                                        <span className="cursor incr-action"
                                        onClick={() => {
+                                           const tempCart = cart.map(itemCart => {
+                                               if(itemCart.id === item.id){
+                                                   itemCart = {...itemCart, qty: itemCart.qty + 1}
+                                               }
+                                               return itemCart
+                                           })
+                                           setCart(tempCart)
                                     }}
                                        >+</span>
 

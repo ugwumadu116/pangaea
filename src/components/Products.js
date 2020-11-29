@@ -1,8 +1,10 @@
 import React from 'react';
 import getSymbolFromCurrency from 'currency-symbol-map'
 
+
 const Products = ({product, cart,setCart, Currency, setCartState}) => {
     return ( 
+       
         <div className="product">
             <img src={product.image_url} alt="product"/>
             <h5 className="m0 mt-4 text-align">{product.title}</h5>
